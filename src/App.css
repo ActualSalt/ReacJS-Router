@@ -9,6 +9,7 @@ nav{
   min-height: 10vh;
   background: rgb(12, 45, 59);
   color: white;
+  
 }
 
 .nav-links{
@@ -17,4 +18,14 @@ nav{
   justify-content: space-around;
   align-items: center;
   list-style: none;
+}
+
+h1.summary{
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+  float: left;
+  padding: 1em;
+  min-width: 50vh;
+  margin-left: 4vw;
 }

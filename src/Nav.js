@@ -3,18 +3,23 @@ import './App.css';
 import {Link} from 'react-router-dom';
 
 function Nav() {
+  
   const navStyle={
-    color: 'white'
+    color: 'white',  
+    textDecoration: 'none'    
   };
+  
 
   return (
     <nav>
+        <Link style={navStyle} to="/">
         <h3>COVID-19 Update</h3>
+        </Link>
         <ul className="nav-links">
-            <Link style={navStyle} to="/about">
-              <li>About</li>
+            <Link to="/about" style={navStyle}>
+              <li >About</li>
             </Link>
-            <Link style={navStyle} to="/shop">
+            <Link to="/shop" style={navStyle}>
               <li>Country</li>
             </Link>
         </ul>

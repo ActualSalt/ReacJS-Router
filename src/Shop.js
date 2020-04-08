@@ -14,13 +14,16 @@ function Shop() {
     const data = await fetch('https://api.covid19api.com/summary');
     
     const items = await data.json();
-    console.log(items.Countries['1']);
-    setCountries(items.Country);
+    const n = 0;
+
+    
+    console.log(items.Countries[0]);
+    setCountries(items.Countries[0]);
   }
 
   return (
     <div>
-      {countries}
+      {countries.Country}
     </div>
   );
 }
