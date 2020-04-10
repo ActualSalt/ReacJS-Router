@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 import {Link} from 'react-router-dom';
+import { render } from '@testing-library/react';
 
 //Receive match data from the previous page
 function CountryDetail({match}) {
@@ -21,19 +22,26 @@ function CountryDetail({match}) {
         const data = await fetch(
             `https://api.covid19api.com/live/country/${matchString}/status/confirmed`);
         const items = await data.json();
-
-        console.log(items.length);
-        const n = items.length-1;
-        setCountryDetail(items[n]);
+        
+        let n = items.length-1;
+        if(0>n){
+            console.log("Invalid Data");
+            console.log("output: "+ items[n]);
+        }else{
+            console.log("Valid Data");
+            console.log(n);
+            setCountryDetail(items[n]);
+        }
     }
-    
+
+    //Output 
     return (
         <div>
             <h1>{countryDetail.Country}</h1>
             <h3>Confirmed: {countryDetail.Confirmed}</h3>
             <h3>Deaths: {countryDetail.Deaths}</h3>
             <h3>Recovered: {countryDetail.Recovered}</h3>
-            <h3>Actice: {countryDetail.Active}</h3>
+            <h3>Active: {countryDetail.Active}</h3>
         </div>
     );
 }
