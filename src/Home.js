@@ -14,12 +14,14 @@ function Home() {
     const data = await fetch('https://api.covid19api.com/summary');
     
     const items = await data.json();
+    console.log(items);
     console.log(items.Global);
     setSummaryUpdate(items.Global);
   }
 
   return (
     <div>
+        <h1>Global Summary</h1>
         <h1 class="summary">New Confirmed: {summaryUpdate.NewConfirmed}</h1>
         <h1 class="summary">Total Cofirmed: {summaryUpdate.TotalConfirmed}</h1>
         <h1 class="summary">New Deaths: {summaryUpdate.NewDeaths}</h1>
