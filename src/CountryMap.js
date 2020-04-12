@@ -20,18 +20,20 @@ function CountryMap() {
 
   
   return (
-    <div>
+    <div className="content-wrap">
       <h1>Country</h1>
-      {countries.map(countries => (
-        <div className="itemBox">
-          <h3 key={countries.Slug+'_'+countries.CountryCode}>
-            <Link to={`/CountryMap/${countries.Slug}`}
-            className="mapItem">
-              {countries.Country}
-            </Link>
-          </h3>
-        </div>
-      ))}
+      <div className="three-col-grid-wrap">
+        {countries.map(countries => (
+          <div className="itemBox">
+            <p key={countries.Slug+'_'+countries.CountryCode}>
+              <Link to={`/CountryMap/${countries.Slug}`}
+              className="mapItem">
+                {countries.Country}
+              </Link>
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

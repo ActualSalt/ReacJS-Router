@@ -1,13 +1,20 @@
 .App {
   text-align: center;
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
 
 :root{
   --navHeight: 6vh;
+  --itemWidth: 370px;
+  --gridWidth: 420px;
 }
 
 nav{
-
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -15,8 +22,9 @@ nav{
   background: rgb(12, 45, 59);
   color: white;
   position: fixed;
-    top: 0;
-    width: 100%;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 10px -2px gray; 
 }
 
 .navBuffer{
@@ -40,9 +48,31 @@ h1.summary{
   padding: 1em;
   min-width: 50vh;
   margin-left: 4vw;
+}
+
+.content-wrap{
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+.three-col-grid-wrap{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.three-col-grid-wrap .itemBox{
+  width: var(--gridWidth);
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-block;
 
 }
 
+.itemBox{
+  margin-bottom: 1.5vh;
+  height: 5.5vh;
+}
 
 .mapItem {
   --time: 0.25s;
@@ -60,7 +90,7 @@ h1.summary{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  max-width: 400px;
+  max-width: var(--itemWidth);
   text-align: center;
   box-shadow: 0px 0px 1px 0px rgba(0,0,0,1);
   color: black;
