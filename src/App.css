@@ -2,18 +2,30 @@
   text-align: center;
 }
 
+:root{
+  --navHeight: 6vh;
+}
+
 nav{
+
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-height: 10vh;
+  min-height: var(--navHeight);
   background: rgb(12, 45, 59);
   color: white;
-  
+  position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navBuffer{
+  min-height: var(--navHeight);
+  display: block;
 }
 
 .nav-links{
-  width: 40%;
+  width: 30%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -28,4 +40,45 @@ h1.summary{
   padding: 1em;
   min-width: 50vh;
   margin-left: 4vw;
+
+}
+
+
+.mapItem {
+  --time: 0.25s;
+  transition: all var(--time) ease;
+  background-position:0 0, 100% 0;
+  background-repeat:no-repeat;
+  background-color: white;
+  border: 2px rgb(0, 171, 214) solid;
+  border-radius: 30px;
+  display: inline-block;
+  border-width: 2px;
+  border-style: transparent;
+  padding: 15px;
+  margin: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0px 0px 1px 0px rgba(0,0,0,1);
+  color: black;
+  text-decoration: none;
+}
+
+@keyframes ripples {
+  0%{
+      box-shadow: 0px 0px 0px 0px rgba(0,0,0,1);
+  }
+  100%{
+      box-shadow: 0px 0px 0px 10px rgba(0,0,0,0);
+  }
+}
+.mapItem:hover{
+  color: white;
+  border: 2px solid black;
+  background-color: black;
+  max-width: 480px;
+  animation: ripples var(--time) ;
 }

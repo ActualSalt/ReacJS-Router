@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import {Link} from 'react-router-dom';
-import { render } from '@testing-library/react';
 
 //Receive match data from the previous page
 function CountryDetail({match}) {
@@ -10,7 +8,6 @@ function CountryDetail({match}) {
         fetchCountryDetail();
         console.log(match);
     }, []);
-
 
     //Match string cleanse
     const matchString = match.params.countryName;
@@ -23,6 +20,8 @@ function CountryDetail({match}) {
             `https://api.covid19api.com/live/country/${matchString}/status/confirmed`);
         const items = await data.json();
         
+        //Check of empty data. 
+        //If the data has no value, it is less than 0 
         let n = items.length-1;
         if(0>n){
             console.log("Invalid Data");
@@ -37,6 +36,8 @@ function CountryDetail({match}) {
     //Output 
     return (
         <div>
+            <h1>{countryDetail.Country === undefined &&
+            "Data Not Available"}</h1>
             <h1>{countryDetail.Country}</h1>
             <h3>Confirmed: {countryDetail.Confirmed}</h3>
             <h3>Deaths: {countryDetail.Deaths}</h3>

@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
 
-function Home() {
+function Home({match}) {
   //State control
   useEffect(() => {
     fetchItems();
+    console.log(match);
   },[]);
 
   const [summaryUpdate, setSummaryUpdate] = useState([]);
