@@ -1,0 +1,35 @@
+:root{
+  --navHeight: 6vh;
+  --itemWidth: 370px;
+  --gridWidth: 420px;
+}
+
+body{
+  background-color: #ebedee;
+}
+
+nav{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  min-height: var(--navHeight);
+  background: rgb(12, 45, 59);
+  color: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 4px 10px -2px gray; 
+}
+
+.navBuffer{
+  min-height: var(--navHeight);
+  display: block;
+}
+
+.nav-links{
+  width: 30%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+}
