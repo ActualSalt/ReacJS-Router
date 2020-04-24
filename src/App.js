@@ -10,17 +10,9 @@ import {BrowserRouter as BRouter, Switch, Route} from 'react-router-dom';
 
 function App() {
   return (
-    <BRouter>
       <div className="App"> 
-        <Nav/>
-        <Switch>
-          <Route path="/" exact component={Home}/>
-          <Route path="/about" component={About}/>
-          <Route path="/CountryMap" exact component={CountryMap}/>
-          <Route path="/CountryMap/:countryName" component={CountryDetail}/>
-        </Switch>
+      
       </div>
-    </BRouter>
   );
 }
 
