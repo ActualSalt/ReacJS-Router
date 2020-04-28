@@ -1,81 +1,115 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
+
 import style from './Nav.module.css';
-import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
+import './Nav.module.css';
+import './navTran.css';
+//import { ReactComponent as ArrowIcon } from './icons/arrow.svg';
 import { ReactComponent as CaretIcon } from './icons/caret.svg';
+import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
+//import { ReactComponent as CogIcon } from './icons/cog.svg';
 
-function Nav(props) {
+//Output 
+function Nav() {
     return (
-        <div className={style.navbar}>
-            <ul className={style.navbar_nav}>
-                <NavItem icon={<ArrowIcon />} />
-                <NavItem icon="Word" />
+        <Navbar>
+            <NavItem icon={<CaretIcon />}>
+                <DropdownMenu>XD</DropdownMenu>
+            </NavItem>
+        </Navbar>
+    );
+}
 
-                <NavItem icon={<CaretIcon />} >
-                    <DropdownMenu />
-                </NavItem>
-            </ul>
-        </div>
+function Navbar(props) {
+    return (
+        <nav className={style.navbar}>
+            <ul className={style['navbar-nav']}>{props.children}</ul>
+        </nav>
     );
 }
 
 function NavItem(props) {
-
     const [open, setOpen] = useState(false);
-
+  
     return (
-        <li className={style.nav_item}>
-            <a href="/#" className={style.icon_button}
-                onClick={() => setOpen(!open)}
-            >
-                {props.icon}
-            </a>
-
-            {open && props.children}
-        </li>
+      <li className={style['nav-item']}>
+        <a href="#" className={style['icon-button']} onClick={() => setOpen(!open)}>
+          {props.icon}
+        </a>
+        {open && props.children}
+      </li>
     );
-}
+  }
 
 function DropdownMenu() {
-
     const [activeMenu, setActiveMenu] = useState('main');
+    const [menuHeight, setMenuHeight] = useState(null);
+    const dropdownRef = useRef(null);
 
-    function DropdownItem(props) {
-        return (
-            <a href="#" className={style.menu_item} onClick={ () => props.goToMenu && setActiveMenu(props.goToMenu)} >
-                <span className={style.icon_button}>{props.leftIcon}</span>
-                {props.children}
-                <span className={style.icon_right}>{props.rightIcon}</span>
-            </a>
-        )
+    useEffect(() => {
+        setMenuHeight(dropdownRef.current?.firstChild.offsetHeight)
+      }, [])
+
+    function calcHeight(el){
+        const height = el.offsetHeight;
+        setMenuHeight(height);
     }
 
-    return (
-        <div className={style.dropDown}>
+    function DropdownItem(props) {
+        return(
+            <a href="#" className={style['menu-item']} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)} >
+                <span className={style['icon-button']}>{props.leftIcon}</span>
+                {props.children}
+                <span className={style['icon-right']}>{props.rightIcon}</span>
+            </a>
+        );
+    }
+
+    return(
+        <div className={style.dropdown} style={{ height: menuHeight }}  ref={dropdownRef}>
             <CSSTransition 
-                in={activeMenu === 'main'}
-                unmountOnExit timeout={500}
-                classNames={style.menu_primary}
-                >
-                <div className="menu">
-                    <DropdownItem>My profile</DropdownItem>
-                    <DropdownItem goToMenu="settings">Setting</DropdownItem>
+                in={activeMenu === 'main'} 
+                timeout={500} 
+                unmountOnExit 
+                classNames="menu-primary"
+                onEnter={calcHeight}
+            >
+                <div className={style.menu}>
+                    <DropdownItem>Global Statistics</DropdownItem>
+                    <DropdownItem
+                        leftIcon={< ChevronIcon />}
+                        goToMenu="CountryPicker"
+                    >
+                        CountryPicker
+                    </DropdownItem>
+                    <DropdownItem>About</DropdownItem>
                 </div>
             </CSSTransition>
 
             <CSSTransition 
-                in={activeMenu === 'settings'}
-                unmountOnExit timeout={500}
-                classNames={style.menu_secondary} 
-                >
-                <div className="menu">
-                    <DropdownItem>Settings</DropdownItem>
-                    <DropdownItem goToMenu="main">Setting</DropdownItem>
+                in={activeMenu === 'CountryPicker'} 
+                timeout={500} 
+                unmountOnExit 
+                classNames="menu-secondary"
+                onEnter={calcHeight}
+            >
+                <div className={style['menu']}>
+                    <DropdownItem>
+                        Country Picker
+                    </DropdownItem>
+                    <DropdownItem
+                        leftIcon="<"
+                        goToMenu="main"
+                        
+                    >
+                        Go Back
+                    </DropdownItem>
                 </div>
             </CSSTransition>
+
         </div>
-    )
+    );
 }
 
 export default Nav; 
