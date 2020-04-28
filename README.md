@@ -14,3 +14,7 @@ Scaleable top navigation bar for various viewports.
 
 ### https://covid19.mathdro.id/api
 
+
+## npm install react-transition-group   
+
+Front-end development 
