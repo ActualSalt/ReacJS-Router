@@ -1,15 +1,50 @@
 import React from 'react';
-import './App.module.css';
-import {Nav} from './components';
+import { fetchData } from './api';
+
+import './App.css';
+import style from './App.module.css';
+import {Nav, Cards, Chart, CountryPicker } from './components';
 
 //Route renders out compoment based on URL 
 
-function App() {
-  return (
-      <div className="App"> 
+class App extends React.Component{
+    //Constructor not needed
+    state = {
+      data: {},
+      country: '',
+  }
+
+    //put async in front since it is a built in function
+    async componentDidMount() {
+      const data = await fetchData();
+
+      this.setState({ data });
+  }
+
+  //Change state of the country variable 
+  handleCountryChange = async (country) => {
+    const data = await fetchData(country);
+
+    this.setState({ data, country: country });
+  }
+
+  render(){
+    const { data, country } = this.state;
+
+    return (
+      <div classNames="App"> 
         <Nav />
-      </div>
-  );
+        <Cards data={data} />
+        <div className={style.container}>
+          <CountryPicker handleCountryChange={this.handleCountryChange} />
+        </div>
+        <div className={style.container}>
+          <Chart data={data} country={country} />        
+        </div>
+    </div>
+    );
+
+  }
 }
 
 export default App;

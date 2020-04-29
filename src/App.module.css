@@ -1,6 +1,7 @@
 
-
-body{
-  background-color: #ebedee;
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
 }
-

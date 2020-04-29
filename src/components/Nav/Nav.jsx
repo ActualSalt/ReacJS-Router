@@ -13,9 +13,10 @@ import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 //Output 
 function Nav() {
     return (
+        
         <Navbar>
             <NavItem icon={<CaretIcon />}>
-                <DropdownMenu>XD</DropdownMenu>
+                <DropdownMenu></DropdownMenu>
             </NavItem>
         </Navbar>
     );
@@ -24,8 +25,16 @@ function Nav() {
 function Navbar(props) {
     return (
         <nav className={style.navbar}>
-            <ul className={style['navbar-nav']}>{props.children}</ul>
+            <ul className={style['navbar-nav']}><NavLeft /><span className={style.flexbuffer} />{props.children}</ul>
         </nav>
+    );
+}
+
+function NavLeft() {
+    return(
+        <div className={style.title}>
+        <h3>COVID-19 Tracker</h3>
+        </div>
     );
 }
 
@@ -33,6 +42,7 @@ function NavItem(props) {
     const [open, setOpen] = useState(false);
   
     return (
+        
       <li className={style['nav-item']}>
         <a href="#" className={style['icon-button']} onClick={() => setOpen(!open)}>
           {props.icon}
@@ -101,7 +111,6 @@ function DropdownMenu() {
                     <DropdownItem
                         leftIcon="<"
                         goToMenu="main"
-                        
                     >
                         Go Back
                     </DropdownItem>
