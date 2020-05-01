@@ -27,15 +27,21 @@ a {
   flex-grow: 1;
 }
 
+.navbuffer{
+  height: var(--nav-size);
+}
+
 /* Top Navigation Bar */
 
 /* <nav> */
 .navbar {
   height: var(--nav-size);
   background-color: var(--bg);
-  padding: 0 2rem;
+  padding: 0 1rem;
   border-bottom: var(--border);
   width: 100%;
+  
+  margin-left: -8px;
   top: 0;
   box-shadow: 0 4px 10px -2px gray; 
 }
@@ -51,6 +57,7 @@ a {
 /* <li> */
 .nav-item {
   width: calc(var(--nav-size) * 0.8);
+  padding-right: 1em;
   display: flex;
   align-items: center;
   justify-content: center;

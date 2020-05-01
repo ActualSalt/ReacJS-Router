@@ -25,7 +25,9 @@ function Navbar(props) {
     return (
         <nav className={style.navbar}>
             <ul className={style['navbar-nav']}><NavLeft /><span className={style.flexbuffer} />{props.children}</ul>
+            <div className={style.navbuffer}></div>
         </nav>
+        
     );
 }
 
