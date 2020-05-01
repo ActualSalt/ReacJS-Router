@@ -87,14 +87,14 @@ function DropdownMenu() {
                 onEnter={calcHeight}
             >
                 <div className={style.menu}>
-                    <DropdownItem>Global Statistics</DropdownItem>
+                <Link to="/"><DropdownItem>Global Statistics</DropdownItem></Link>
                     <DropdownItem
                         leftIcon={< ChevronIcon />}
                         goToMenu="CountryPicker"
                     >
                         CountryPicker
                     </DropdownItem>
-                    <DropdownItem>About</DropdownItem>
+                    <Link to="/about"><DropdownItem>About</DropdownItem></Link>
                 </div>
             </CSSTransition>
 
@@ -106,9 +106,9 @@ function DropdownMenu() {
                 onEnter={calcHeight}
             >
                 <div className={style['menu']}>
-                    <DropdownItem>
+                    <Link to="/countryPickerPage"><DropdownItem>
                         Country Picker
-                    </DropdownItem>
+                    </DropdownItem></Link>
                     <DropdownItem
                         leftIcon="<"
                         goToMenu="main"

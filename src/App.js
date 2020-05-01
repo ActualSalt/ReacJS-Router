@@ -1,9 +1,13 @@
 import React from 'react';
 import { fetchData } from './api';
-
 import './App.css';
 import style from './App.module.css';
 import {Nav, Cards, Chart, CountryPicker } from './components';
+import {BrowserRouter as BRouter, Switch, Route} from 'react-router-dom';
+
+
+import about from './pages/About';
+
 
 //Route renders out compoment based on URL 
 
@@ -32,16 +36,32 @@ class App extends React.Component{
     const { data, country } = this.state;
 
     return (
-      <div className="App"> 
-        <Nav />
-        <Cards data={data} />
-        <div className={style.container}>
-          <CountryPicker handleCountryChange={this.handleCountryChange} />
+      <BRouter>
+        <div className="App"> 
+          <Nav />
+          <Switch>
+            <Route path="/" exact >
+              <Cards data={data} />
+              <div className={style.container}>
+                <Chart data={data} country={country} />        
+              </div>
+            </Route>
+            
+            <Route path="/about" component={about} />
+
+            <Route path="/countryPickerPage" >
+              <Cards data={data} />
+              <div className={style.container}>
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
+              </div>
+              <div className={style.container}>
+                <Chart data={data} country={country} />        
+              </div>
+            </Route>
+          </Switch>
+
         </div>
-        <div className={style.container}>
-          <Chart data={data} country={country} />        
-        </div>
-    </div>
+      </BRouter>
     );
 
   }
