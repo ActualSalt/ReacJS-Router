@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-
+import {Link} from 'react-router-dom';
 
 import style from './Nav.module.css';
 import './Nav.module.css';
@@ -13,7 +13,6 @@ import { ReactComponent as ChevronIcon } from './icons/chevron.svg';
 //Output 
 function Nav() {
     return (
-        
         <Navbar>
             <NavItem icon={<CaretIcon />}>
                 <DropdownMenu></DropdownMenu>

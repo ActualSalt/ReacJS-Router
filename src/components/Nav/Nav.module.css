@@ -33,8 +33,11 @@ a {
 .navbar {
   height: var(--nav-size);
   background-color: var(--bg);
-  padding: 0 1rem;
+  padding: 0 2rem;
   border-bottom: var(--border);
+  width: 100%;
+  top: 0;
+  box-shadow: 0 4px 10px -2px gray; 
 }
 
 /* <ul> */

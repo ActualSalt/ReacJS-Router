@@ -32,7 +32,7 @@ class App extends React.Component{
     const { data, country } = this.state;
 
     return (
-      <div classNames="App"> 
+      <div className="App"> 
         <Nav />
         <Cards data={data} />
         <div className={style.container}>
