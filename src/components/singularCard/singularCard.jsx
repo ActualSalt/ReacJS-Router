@@ -1,73 +1,33 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { fetchBigs } from '../../api';
+
+import style from './singularCard.module.css';
 import { Card, CardContent, Typography, Grid } from '@material-ui/core';
-import CountUp from 'react-countup';
-import cx from 'classname';
 
-import style from './Cards.module.css';
 
-const Cards = ({ data: { confirmed, deaths, lastUpdate, recovered } , country}) => {
-    if (!confirmed) {
-        return 'Loading...';
+const SingularCard = ({country}) => {
+    const [fetchedCountries, setFetchedCountries] = useState([]);
+
+    useEffect(() => {
+        const fetchAPI = async () => {
+            setFetchedCountries(await fetchBigs(country));
+        }
+
+        fetchAPI();
+    }, [setFetchedCountries]);
+
+    if(!fetchedCountries.confirmed){
+        return 'Loading';
     }
+
     return(
         <div className={style.container}>
-            <Grid container spacing={3} justify="center">
-            <Grid item component={Card} xs={12} md={3} className={cx(style.card, style.infected)}>
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>
-                            Infected
-                        </Typography>
-                        <Typography variant="h5">
-                            <CountUp
-                                start={0}
-                                end={confirmed.value}
-                                duration={2}
-                                separator=","
-                            />
-                        </Typography>
-                        <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                        <Typography variant="body2">Active</Typography>
-                    </CardContent>
-                </Grid>
-
-                <Grid item component={Card} xs={12} md={3} className={cx(style.card, style.recovered)}>
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>
-                            Recovered
-                        </Typography>
-                        <Typography variant="h5">
-                            <CountUp
-                                start={0}
-                                end={recovered.value}
-                                duration={2}
-                                separator=","
-                            />
-                        </Typography>
-                        <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                        <Typography variant="body2">Recovered</Typography>
-                    </CardContent>
-                </Grid>
-
-                <Grid item component={Card} xs={12} md={3} className={cx(style.card, style.deaths)}>
-                    <CardContent>
-                        <Typography color="textSecondary" gutterBottom>
-                            Death
-                        </Typography>
-                        <Typography variant="h5">
-                            <CountUp
-                                start={0}
-                                end={deaths.value}
-                                duration={2}
-                                separator=","
-                            />
-                        </Typography>
-                        <Typography color="textSecondary">{new Date(lastUpdate).toDateString()}</Typography>
-                        <Typography variant="body2">Deaths</Typography>
-                    </CardContent>
-                </Grid>
-            </Grid>
+            <p>{country}</p>
+            <p>{fetchedCountries.confirmed.value}</p>
+            <p>{fetchedCountries.recovered.value}</p>
+            <p>{fetchedCountries.deaths.value}</p>
         </div>
     );
 }
 
-export default Cards;
+export default SingularCard;

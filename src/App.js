@@ -1,8 +1,8 @@
 import React from 'react';
-import { fetchData } from './api';
+import { fetchData, fetchBigs } from './api';
 import './App.css';
 import style from './App.module.css';
-import {Nav, Cards, Chart, CountryPicker } from './components';
+import {Nav, Cards, Chart, CountryPicker, SingularCard } from './components';
 import {BrowserRouter as BRouter, Switch, Route} from 'react-router-dom';
 
 
@@ -13,30 +13,32 @@ import about from './pages/About';
 
 class App extends React.Component{
     //Constructor not needed
-    state = {
-      data: {},
-      country: '',
+  state = {
+    data: {},
+    country: '',
   }
 
     //put async in front since it is a built in function
-    async componentDidMount() {
+  async componentDidMount() {
       const data = await fetchData();
 
       this.setState({ data });
       
   }
 
+  //Big country specific data 
+
   //Change state of the country variable 
   handleCountryChange = async (country) => {
     const data = await fetchData(country);
 
     this.setState({ data, country: country });
-    
   }
 
   render(){
     const { data, country } = this.state;
-
+    console.log(data);
+    console.log(country);
     return (
       <BRouter>
         <div className="App"> 
@@ -44,22 +46,22 @@ class App extends React.Component{
           <Switch>
             <Route path="/" exact >
               <h2>Global Statistic</h2>
-              <Cards data={data} />
-              <div className={style.container}>
-                <CountryPicker handleCountryChange={this.handleCountryChange} />
-              </div>
-              <div className={style.container}>
-                <Chart data={data} country={country} />        
-              </div>
+              <SingularCard country="USA" />
+              <SingularCard country="China" />
+              <SingularCard country="Korea, South" />
             </Route>
             
             <Route path="/about" component={about} />
 
             <Route path="/countryPickerPage" >
               <h2>Country Picker</h2>
+              <h3>API: https://covid19.mathdro.id/api</h3>
               <Cards data={data} />
               <div className={style.container}>
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
+              </div>
+              <div className={style.container}>
+                <Chart data={data} country={country} />        
               </div>
             </Route>
           </Switch>
