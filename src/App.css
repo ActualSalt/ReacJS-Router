@@ -6,6 +6,9 @@
   --border: 1px solid #474a4d;
   --border-radius: 8px;
   --speed: 500ms; 
+  --infectCardColor: 10px solid rgba(255, 0, 0, 0.5);
+  --recoveredCardColor: 10px solid rgba(0,255,0, .5);
+  --deathCardColor: 10px solid rgba(0, 0, 0, 0.5);
 }
 
 body{

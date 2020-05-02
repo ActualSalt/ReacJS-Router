@@ -23,6 +23,7 @@ class App extends React.Component{
       const data = await fetchData();
 
       this.setState({ data });
+      
   }
 
   //Change state of the country variable 
@@ -30,6 +31,7 @@ class App extends React.Component{
     const data = await fetchData(country);
 
     this.setState({ data, country: country });
+    
   }
 
   render(){
@@ -41,7 +43,11 @@ class App extends React.Component{
           <Nav />
           <Switch>
             <Route path="/" exact >
+              <h2>Global Statistic</h2>
               <Cards data={data} />
+              <div className={style.container}>
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
+              </div>
               <div className={style.container}>
                 <Chart data={data} country={country} />        
               </div>
@@ -50,12 +56,10 @@ class App extends React.Component{
             <Route path="/about" component={about} />
 
             <Route path="/countryPickerPage" >
+              <h2>Country Picker</h2>
               <Cards data={data} />
               <div className={style.container}>
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
-              </div>
-              <div className={style.container}>
-                <Chart data={data} country={country} />        
               </div>
             </Route>
           </Switch>
