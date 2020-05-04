@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.10e9d3dd.chunk.css",
-    "main.js": "/static/js/main.6e221be3.chunk.js",
-    "main.js.map": "/static/js/main.6e221be3.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4470654d.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4470654d.js.map",
-    "static/js/2.6d44762b.chunk.js": "/static/js/2.6d44762b.chunk.js",
-    "static/js/2.6d44762b.chunk.js.map": "/static/js/2.6d44762b.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.bb6d03b2eee18a2215ccca0494c94cad.js": "/precache-manifest.bb6d03b2eee18a2215ccca0494c94cad.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.10e9d3dd.chunk.css.map": "/static/css/main.10e9d3dd.chunk.css.map",
-    "static/js/2.6d44762b.chunk.js.LICENSE.txt": "/static/js/2.6d44762b.chunk.js.LICENSE.txt",
-    "static/media/caret.22b4c4a7.svg": "/static/media/caret.22b4c4a7.svg",
-    "static/media/chevron.0ed912cb.svg": "/static/media/chevron.0ed912cb.svg"
+    "main.css": "/COVID-19-Summary/static/css/main.10e9d3dd.chunk.css",
+    "main.js": "/COVID-19-Summary/static/js/main.6e221be3.chunk.js",
+    "main.js.map": "/COVID-19-Summary/static/js/main.6e221be3.chunk.js.map",
+    "runtime-main.js": "/COVID-19-Summary/static/js/runtime-main.535e2f4c.js",
+    "runtime-main.js.map": "/COVID-19-Summary/static/js/runtime-main.535e2f4c.js.map",
+    "static/js/2.7394d84c.chunk.js": "/COVID-19-Summary/static/js/2.7394d84c.chunk.js",
+    "static/js/2.7394d84c.chunk.js.map": "/COVID-19-Summary/static/js/2.7394d84c.chunk.js.map",
+    "index.html": "/COVID-19-Summary/index.html",
+    "precache-manifest.81269b8464f04f6a916b1810f1888bcf.js": "/COVID-19-Summary/precache-manifest.81269b8464f04f6a916b1810f1888bcf.js",
+    "service-worker.js": "/COVID-19-Summary/service-worker.js",
+    "static/css/main.10e9d3dd.chunk.css.map": "/COVID-19-Summary/static/css/main.10e9d3dd.chunk.css.map",
+    "static/js/2.7394d84c.chunk.js.LICENSE.txt": "/COVID-19-Summary/static/js/2.7394d84c.chunk.js.LICENSE.txt",
+    "static/media/caret.22b4c4a7.svg": "/COVID-19-Summary/static/media/caret.22b4c4a7.svg",
+    "static/media/chevron.0ed912cb.svg": "/COVID-19-Summary/static/media/chevron.0ed912cb.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4470654d.js",
-    "static/js/2.6d44762b.chunk.js",
+    "static/js/runtime-main.535e2f4c.js",
+    "static/js/2.7394d84c.chunk.js",
     "static/css/main.10e9d3dd.chunk.css",
     "static/js/main.6e221be3.chunk.js"
   ]
