@@ -45,7 +45,7 @@ class App extends React.Component{
         <div className="App"> 
           <Nav />
           <Switch>
-            <Route path="/" exact >
+            <Route path="/COVID-19-summary" exact >
             <h2>COVID-19 Tracker</h2>
               <div className={style.cardContainer}>
                 <Grid container spacing={3} justify="center" >
