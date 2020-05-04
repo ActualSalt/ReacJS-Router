@@ -45,9 +45,9 @@ function NavItem(props) {
     return (
         
       <li className={style['nav-item']}>
-        <a href="#" className={style['icon-button']} onClick={() => setOpen(!open)}>
+        <div className={style['icon-button']} onClick={() => setOpen(!open)}>
           {props.icon}
-        </a>
+        </div>
         {open && props.children}
       </li>
     );
@@ -69,11 +69,11 @@ function DropdownMenu() {
 
     function DropdownItem(props) {
         return(
-            <a href="#" className={style['menu-item']} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)} >
+            <div className={style['menu-item']} onClick={() => props.goToMenu && setActiveMenu(props.goToMenu)} >
                 <span className={style['icon-button']}>{props.leftIcon}</span>
                 {props.children}
                 <span className={style['icon-right']}>{props.rightIcon}</span>
-            </a>
+            </div>
         );
     }
 

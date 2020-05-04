@@ -14,7 +14,7 @@ const SingularCard = ({country}) => {
         }
 
         fetchAPI();
-    }, [setFetchedCountries]);
+    }, [country]);
 
     if(!fetchedCountries.confirmed){
         return 'Loading';
