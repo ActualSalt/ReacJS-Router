@@ -3,10 +3,9 @@
 }
 
 .card{
-    margin: 2% !important;
-    width: 20vh;
+    margin: 2% 0 !important;
+    min-width: 30vh;
 }
-
 .infected{
     border-bottom: var(--infectCardColor);
 }
@@ -17,8 +16,20 @@
     border-bottom: var(--deathCardColor);
 }
 
-@media (max-width: 770px){
+hr{
+    border-bottom: 1px solid #1f1209;
+    box-shadow: 0 20px 20px -20px #333;
+}
+
+.textContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+
+@media (max-width: 500px){
     .card{
         margin: 2% 0 !important;
+        max-width: 50vh;
     }
 }

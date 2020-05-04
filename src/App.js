@@ -1,9 +1,10 @@
 import React from 'react';
-import { fetchData, fetchBigs } from './api';
+import { fetchData} from './api';
 import './App.css';
 import style from './App.module.css';
 import {Nav, Cards, Chart, CountryPicker, SingularCard } from './components';
 import {BrowserRouter as BRouter, Switch, Route} from 'react-router-dom';
+import Grid from '@material-ui/core/Grid';
 
 
 import about from './pages/About';
@@ -45,17 +46,19 @@ class App extends React.Component{
           <Nav />
           <Switch>
             <Route path="/" exact >
-              <h2>Global Statistic</h2>
-              <SingularCard country="USA" />
-              <SingularCard country="China" />
-              <SingularCard country="Korea, South" />
+              <h2>COVID-19 Tracker</h2>
+              <div className={style.cardContainer}>
+                <Grid container spacing={3} justify="center" >
+                    <SingularCard country="USA" /> 
+                    <SingularCard country="China" /> 
+                    <SingularCard country="Korea, South" />
+                </Grid>
+              </div>
             </Route>
             
             <Route path="/about" component={about} />
 
             <Route path="/countryPickerPage" >
-              <h2>Country Picker</h2>
-              <h3>API: https://covid19.mathdro.id/api</h3>
               <Cards data={data} />
               <div className={style.container}>
                 <CountryPicker handleCountryChange={this.handleCountryChange} />

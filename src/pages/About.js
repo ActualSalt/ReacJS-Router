@@ -12,7 +12,15 @@ function About() {
       Technologies used: 
       </h2>
       <p>
-        HTML/CSS ReactJS NodeJS Express MongoDB Material UI Router Axios Javascript 
+        HTML/CSS <br />
+        ReactJS <br />
+        NodeJS <br />
+        Express <br />
+        MongoDB <br />
+        Material UI <br />
+        Router <br />
+        Axios <br />
+        Javascript 
       </p>
     </div>
   );

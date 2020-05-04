@@ -34,7 +34,7 @@ function Navbar(props) {
 function NavLeft() {
     return(
         <div className={style.title}>
-        <h3>COVID-19 Tracker</h3>
+        <Link to="/"><h3>COVID-19 Tracker</h3></Link>
         </div>
     );
 }

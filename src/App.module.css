@@ -5,3 +5,14 @@
     justify-content: center;
     flex-direction: column;
 }
+
+.cardContainer{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.cardOrgan{
+
+    
+}
+
