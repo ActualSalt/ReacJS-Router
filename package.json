@@ -2,7 +2,7 @@
   "name": "router",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://ActualSalt.github.io/",
+  "homepage": "http://ActualSalt.github.io/COVID-19-Summary",
   "dependencies": {
     "@material-ui/core": "^4.9.11",
     "@testing-library/jest-dom": "^4.2.4",
