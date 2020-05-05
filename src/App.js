@@ -56,9 +56,9 @@ class App extends React.Component{
               </div>
             </Route>
             
-            <Route path="/about" component={about} />
+            <Route path="/COVID-19-summary/about" component={about} />
 
-            <Route path="/countryPickerPage" >
+            <Route path="/COVID-19-summary/countryPickerPage" >
               <Cards data={data} />
               <div className={style.container}>
                 <CountryPicker handleCountryChange={this.handleCountryChange} />

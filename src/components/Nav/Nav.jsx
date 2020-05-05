@@ -34,7 +34,7 @@ function Navbar(props) {
 function NavLeft() {
     return(
         <div className={style.title}>
-        <Link to="/"><h3>COVID-19 Tracker</h3></Link>
+        <Link to="/COVID-19-summary"><h3>COVID-19 Tracker</h3></Link>
         </div>
     );
 }
@@ -94,7 +94,7 @@ function DropdownMenu() {
                     >
                         CountryPicker
                     </DropdownItem>
-                    <Link to="/about"><DropdownItem>About</DropdownItem></Link>
+                    <Link to="/COVID-19-summary/about"><DropdownItem>About</DropdownItem></Link>
                 </div>
             </CSSTransition>
 
@@ -106,7 +106,7 @@ function DropdownMenu() {
                 onEnter={calcHeight}
             >
                 <div className={style['menu']}>
-                    <Link to="/countryPickerPage"><DropdownItem>
+                    <Link to="/COVID-19-summary/countryPickerPage"><DropdownItem>
                         Country Picker
                     </DropdownItem></Link>
                     <DropdownItem
