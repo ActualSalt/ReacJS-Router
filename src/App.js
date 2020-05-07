@@ -45,7 +45,7 @@ class App extends React.Component {
         <div className="App">
           <Nav />
           <Switch>
-            <Route path="/COVID-19-summary" exact >
+            <Route path="/" exact >
               <h2>COVID-19 Tracker</h2>
               <div className={style.cardContainer}>
                 <Grid container spacing={3} justify="center" >
@@ -56,9 +56,9 @@ class App extends React.Component {
               </div>
             </Route>
 
-            <Route path="/COVID-19-summary/about" component={about} />
+            <Route path="/about" component={about} />
 
-            <Route path="/COVID-19-summary/countryPickerPage" >
+            <Route path="/countryPickerPage" >
               <Cards data={data} />
               <div className={style.container}>
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
