@@ -1,9 +1,9 @@
 import React from 'react';
-import { fetchData} from './api';
+import { fetchData } from './api';
 import './App.css';
 import style from './App.module.css';
-import {Nav, Cards, Chart, CountryPicker, SingularCard } from './components';
-import {BrowserRouter as BRouter, Switch, Route} from 'react-router-dom';
+import { Nav, Cards, Chart, CountryPicker, SingularCard } from './components';
+import { BrowserRouter as BRouter, Switch, Route } from 'react-router-dom';
 import Grid from '@material-ui/core/Grid';
 
 
@@ -12,19 +12,19 @@ import about from './pages/About';
 
 //Route renders out compoment based on URL 
 
-class App extends React.Component{
-    //Constructor not needed
+class App extends React.Component {
+  //Constructor not needed
   state = {
     data: {},
     country: '',
   }
 
-    //put async in front since it is a built in function
+  //put async in front since it is a built in function
   async componentDidMount() {
-      const data = await fetchData();
+    const data = await fetchData();
 
-      this.setState({ data });
-      
+    this.setState({ data });
+
   }
 
   //Big country specific data 
@@ -36,26 +36,26 @@ class App extends React.Component{
     this.setState({ data, country: country });
   }
 
-  render(){
+  render() {
     const { data, country } = this.state;
     console.log(data);
     console.log(country);
     return (
       <BRouter>
-        <div className="App"> 
+        <div className="App">
           <Nav />
           <Switch>
             <Route path="/COVID-19-summary" exact >
-            <h2>COVID-19 Tracker</h2>
+              <h2>COVID-19 Tracker</h2>
               <div className={style.cardContainer}>
                 <Grid container spacing={3} justify="center" >
-                    <SingularCard country="USA" /> 
-                    <SingularCard country="China" /> 
-                    <SingularCard country="Korea, South" />
+                  <SingularCard country="USA" />
+                  <SingularCard country="China" />
+                  <SingularCard country="Korea, South" />
                 </Grid>
               </div>
             </Route>
-            
+
             <Route path="/COVID-19-summary/about" component={about} />
 
             <Route path="/COVID-19-summary/countryPickerPage" >
@@ -64,7 +64,7 @@ class App extends React.Component{
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
               </div>
               <div className={style.container}>
-                <Chart data={data} country={country} />        
+                <Chart data={data} country={country} />
               </div>
             </Route>
           </Switch>
